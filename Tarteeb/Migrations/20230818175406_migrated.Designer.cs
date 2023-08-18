@@ -12,8 +12,8 @@ using Tarteeb.Brokers.Storages;
 namespace Tarteeb.Migrations
 {
     [DbContext(typeof(StorageBroker))]
-    [Migration("20230817164456_Add-tasks")]
-    partial class Addtasks
+    [Migration("20230818175406_migrated")]
+    partial class migrated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
