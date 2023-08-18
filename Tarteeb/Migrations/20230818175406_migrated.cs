@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Tarteeb.Migrations
 {
     /// <inheritdoc />
-    public partial class Addtasks : Migration
+    public partial class migrated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
