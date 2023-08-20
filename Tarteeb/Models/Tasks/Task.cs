@@ -7,6 +7,8 @@
         public string Description { get; set; } = string.Empty;
         public Guid? AssigneeId { get; set; }
         public Status Status { get; set; }
+        public Priority Priority { get; set; } 
+        public DateTimeOffset DeadLine { get; set; }
         public DateTimeOffset CreatedDate { get; set; }
         public DateTimeOffset UpdatedDate { get; set; }
         public Guid CreatedUserId { get; set; }
