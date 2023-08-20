@@ -4,15 +4,15 @@
 //===============================
 
 using Microsoft.EntityFrameworkCore;
-using Local= Tarteeb.Models.Tasks;
+using Tarteeb.Models.Tasks;
 
 namespace Tarteeb.Brokers.Storages
 {
     public partial class StorageBroker
     {
-        public DbSet<Local.Task> Tasks { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
-        public async ValueTask<T> InsertTaskAsync<T>(T @object)
+        public async ValueTask<T> InsertTicketAsync<T>(T @object)
         {
             var broker = new StorageBroker(this.configuration);
             broker.Entry(@object).State = EntityState.Added;

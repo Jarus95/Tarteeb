@@ -4,12 +4,12 @@
 //===============================
 
 using Tarteeb.Models.Tasks;
-using Task = Tarteeb.Models.Tasks.Task;
+using Task = Tarteeb.Models.Tasks.Ticket;
 
 namespace Tarteeb.Brokers.Storages
 {
     public interface IStorageBroker
     {
-        ValueTask<T> InsertTaskAsync<T>(T @object);
+        ValueTask<T> InsertTicketAsync<T>(T @object);
     }
 }
