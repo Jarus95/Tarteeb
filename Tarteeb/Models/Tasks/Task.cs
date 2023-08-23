@@ -18,5 +18,6 @@ namespace Tarteeb.Models.Tasks
         public DateTimeOffset UpdatedDate { get; set; }
         public Guid CreatedUserId { get; set; }
         public Guid UpdatedUserId { get; set; }
+
     }
 }
