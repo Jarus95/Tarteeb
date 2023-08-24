@@ -1,10 +1,14 @@
+
+using FluentAssertions;
 using Xunit;
 
 namespace Tarteeb.Tests
 {
     public class DeleteMe
     {
+        bool value = true;
+
         [Fact]
-        public void ShouldReturnTrue() => Assert.True(true);
+        public void ShouldReturnTrue() => value.Should().BeTrue();
     }
 }
