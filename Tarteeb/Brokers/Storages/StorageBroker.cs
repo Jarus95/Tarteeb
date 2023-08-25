@@ -23,6 +23,15 @@ namespace Tarteeb.Brokers.Storages
 
         }
 
+        public async ValueTask<T> DeleteAsync<T>(T @object)
+        {
+            var broker = new StorageBroker(this.configuration);
+            broker.Entry(@object).State = EntityState.Deleted;
+            await broker.SaveChangesAsync();
+            return @object;
+
+        }
+
         public IQueryable<T> SelectAllAsync<T>() where T : class
         {
             var broker = new StorageBroker(this.configuration);
@@ -36,5 +45,6 @@ namespace Tarteeb.Brokers.Storages
 
            optionsBuilder.UseSqlServer(connectionString);
         }
+
     }
 }

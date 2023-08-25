@@ -12,11 +12,15 @@ namespace Tarteeb.Brokers.Storages
     {
         public DbSet<Ticket> Tickets { get; set; }
 
-        public async ValueTask<Ticket> InsertAsync(Ticket ticket) =>
+        public async ValueTask<Ticket> InsertTicketAsync(Ticket ticket) =>
             await InsertAsync(ticket);
 
-        public IQueryable<Ticket> SelectAll() =>
+        public IQueryable<Ticket> SelectAllTicket() =>
             SelectAllAsync<Ticket>();
-  
+
+
+        public async ValueTask<Ticket> DeleteTicketAsync(Ticket ticket) =>
+            await DeleteAsync(ticket);
+
     }
 }
