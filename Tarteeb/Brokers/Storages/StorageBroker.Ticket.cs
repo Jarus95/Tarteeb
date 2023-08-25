@@ -12,13 +12,11 @@ namespace Tarteeb.Brokers.Storages
     {
         public DbSet<Ticket> Tickets { get; set; }
 
-        public async ValueTask<T> InsertTicketAsync<T>(T @object)
-        {
-            var broker = new StorageBroker(this.configuration);
-            broker.Entry(@object).State = EntityState.Added;
-            await broker.SaveChangesAsync();
-            return @object;
+        public async ValueTask<Ticket> InsertAsync(Ticket ticket) =>
+            await InsertAsync(ticket);
 
-        }
+        public IQueryable<Ticket> SelectAll() =>
+            SelectAllAsync<Ticket>();
+  
     }
 }

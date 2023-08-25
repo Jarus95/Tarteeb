@@ -10,6 +10,7 @@ namespace Tarteeb.Brokers.Storages
 {
     public interface IStorageBroker
     {
-        ValueTask<T> InsertTicketAsync<T>(T @object);
+        ValueTask<Ticket> InsertAsync(Ticket ticket);
+        IQueryable<Ticket> SelectAll();
     }
 }
