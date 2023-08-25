@@ -22,5 +22,8 @@ namespace Tarteeb.Brokers.Storages
         public async ValueTask<Ticket> DeleteTicketAsync(Ticket ticket) =>
             await DeleteAsync(ticket);
 
+        public async ValueTask<Ticket> SelectByIdTicket(Guid id) =>
+            await SelectByIdAsync<Ticket>();
+
     }
 }

@@ -13,5 +13,6 @@ namespace Tarteeb.Brokers.Storages
         ValueTask<Ticket> InsertTicketAsync(Ticket ticket);
         IQueryable<Ticket> SelectAllTicket();
         ValueTask<Ticket> DeleteTicketAsync(Ticket ticket);
+        ValueTask<Ticket> SelectByIdTicket(Guid id);
     }
 }

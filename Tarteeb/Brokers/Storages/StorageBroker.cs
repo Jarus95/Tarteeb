@@ -38,6 +38,12 @@ namespace Tarteeb.Brokers.Storages
             return broker.Set<T>();
         }
 
+        public async ValueTask<T> SelectByIdAsync<T>(params object[] objectIds) where T : class
+        {
+            var broker = new StorageBroker(this.configuration);
+            return await broker.FindAsync<T>(objectIds);
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString = 
@@ -45,6 +51,5 @@ namespace Tarteeb.Brokers.Storages
 
            optionsBuilder.UseSqlServer(connectionString);
         }
-
     }
 }
