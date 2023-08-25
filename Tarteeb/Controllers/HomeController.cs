@@ -22,6 +22,13 @@ namespace Tarteeb.Controllers
         [HttpGet]
         public ActionResult<string> GetMessage() => "Tarteeb is Working";
 
+
+        [HttpGet("GetAllTickets")]
+        public IActionResult GetAllTasks()
+        {
+            return Ok(this.storageBroker.SelectAll());
+        }
+
         //[HttpPost]
         //public async ValueTask<IActionResult> PostTasks()
         //{
@@ -29,11 +36,11 @@ namespace Tarteeb.Controllers
         //    {
         //        Id = new Guid(),
         //        Priority = Priority.HIGH
-                
+
         //    };
 
         //    return  Ok(this.storageBroker.InsertTaskAsync(task));
         //}
-        
+
     }
 }
