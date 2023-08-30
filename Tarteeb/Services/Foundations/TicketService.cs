@@ -15,7 +15,6 @@ namespace Tarteeb.Services.Foundations
         public TicketService(IStorageBroker storageBroker) =>
             this.storageBroker = storageBroker;
 
-        public ValueTask<Ticket> AddTicketAsync(Ticket ticket) =>
-            throw new NotImplementedException();
+        public ValueTask<Ticket> AddTicketAsync(Ticket ticket) => throw new NotImplementedException();
     }
 }
