@@ -15,7 +15,10 @@ namespace Tarteeb.Services.Foundations
         public TicketService(IStorageBroker storageBroker) =>
             this.storageBroker = storageBroker;
 
-        public async ValueTask<Ticket> AddTicketAsync(Ticket ticket) => 
-            await this.storageBroker.InsertTicketAsync(ticket);
+        public async ValueTask<Ticket> AddTicketAsync(Ticket ticket)
+        {
+           return await this.storageBroker.InsertTicketAsync(ticket);
+
+        }
     }
 }

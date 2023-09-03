@@ -21,26 +21,22 @@ namespace Tarteeb.Tests.Services.Foundations
         public async Task ShouldAddAsync()
         {
             //given
-            Ticket randomTicket = CreateRandomTicket();
-            Ticket inputTicket = randomTicket;
-            Ticket persistedTicket = inputTicket;
-     
-            Ticket expectedTicket = persistedTicket.DeepClone();
+            Ticket inputTicket = CreateRandomTicket();
+            Ticket persistTicket = inputTicket;
+            Ticket expectedTicket = persistTicket.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
-                broker.InsertTicketAsync(inputTicket))
-                    .ReturnsAsync(persistedTicket);
+                 broker.InsertTicketAsync(inputTicket)).ReturnsAsync(persistTicket);
             //when
-            Ticket actualTicket = await this.ticketService.AddTicketAsync(inputTicket); //tasodifiy qiymat berib korish
+            Ticket resultTicket = await this.ticketService.AddTicketAsync(inputTicket);
+
             //then
-            actualTicket.Should().BeEquivalentTo(expectedTicket);
+            resultTicket.Should().BeEquivalentTo(expectedTicket);
 
             this.storageBrokerMock.Verify(broker =>
-            broker.InsertTicketAsync(inputTicket), Times.Once);
-
+                broker.InsertTicketAsync(inputTicket), Times.Once);
+            
             this.storageBrokerMock.VerifyNoOtherCalls();
-
-
         }
 
         private static DateTimeOffset GetRandomDateTime() =>
