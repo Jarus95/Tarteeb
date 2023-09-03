@@ -1,4 +1,9 @@
-﻿using System;
+﻿//=================================
+// Copyright (c) Coalition of Good-Hearted Engineers
+// Free to use to bring order in your workplace
+//===============================
+
+using System;
 using System.Data;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -19,14 +24,7 @@ namespace Tarteeb.Tests.Services.Foundations
             Ticket randomTicket = CreateRandomTicket();
             Ticket inputTicket = randomTicket;
             Ticket persistedTicket = inputTicket;
-            //Ticket expectedTicket = new Ticket()
-            //{
-            //    Id = persistedTicket.Id,
-            //    Status = persistedTicket.Status,
-            //    AssigneeId = persistedTicket.AssigneeId,
-            //    CreatedDate = persistedTicket.CreatedDate,
-
-            //};
+     
             Ticket expectedTicket = persistedTicket.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
