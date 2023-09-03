@@ -8,7 +8,7 @@ namespace Tarteeb.Brokers.Loggings
     public class LoggingBroker : ILoggingBroker
     {
         private readonly ILogger logger;
-        public LoggingBroker(ILogger logger) =>
+        public LoggingBroker(ILogger<LoggingBroker> logger) =>
             this.logger = logger;
         public void LogError(Exception exception) =>
             this.logger.LogError(exception.Message, exception);
