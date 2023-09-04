@@ -37,21 +37,7 @@ namespace Tarteeb.Tests.Services.Foundations
                 broker.InsertTicketAsync(inputTicket), Times.Once);
             
             this.storageBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
         }
-
-        private static DateTimeOffset GetRandomDateTime() =>
-            new DateTimeRange(earliestDate: DateTime.UnixEpoch).GetValue();
-        private static Filler<Ticket> CreateTicketFiller()
-        {
-            var filler = new Filler<Ticket>();
-            DateTimeOffset dates = GetRandomDateTime();
-            filler.Setup()
-                .OnType<DateTimeOffset>().Use(dates);
-
-            return filler;
-        }
-
-        private static Ticket CreateRandomTicket() =>
-             CreateTicketFiller().Create();
     }
 }
